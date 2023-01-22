@@ -1,0 +1,12 @@
+id1#pomorandza_mudara#pekara#32
+id2#pita jabuka#pekara#42
+id3#kola#sok#120
+id4#pita borovnica#pekara#160
+id5#fanta 2l#sok#420
+id6#pita_krompirusa#pekara#42
+id7#konfeti#italija#160
+id8#kos kola#sok#5
+id9#zuti sok#sok#6id
+10#crni sok#sok#110
+id12#mini pizza#pekara#250
+id13#pizza parce#pekara#360
