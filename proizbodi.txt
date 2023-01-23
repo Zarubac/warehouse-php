@@ -1,4 +1,4 @@
-id1#pomorandza_mudara#pekara#32
+id1#pomorandza_crvena#pekara#32
 id2#pita jabuka#pekara#42
 id3#kola#sok#120
 id4#pita borovnica#pekara#160

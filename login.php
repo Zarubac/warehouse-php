@@ -2,11 +2,20 @@
     require_once("funkcije.php");
     session_start();
 
+    //redirekcija ukoliko je korisnik vec prijavljen
     if(isLogedIn())
-        header("Location='home.php'");
+        header("Location='warehouse.php'");
     
+    //Ako je redirektovan na login stranicu preko linka za odjavu
+    //poziva se logout funkcija za prekidanje sesije
     if(isset($_GET['odjava']))
         logout();
+    
+    //Provera konekcije na bazu
+    if(!$db=konekcija())
+    {
+        exit();
+    }
     
 
 ?>
@@ -24,7 +33,7 @@
     <!-- Navbar -->
     <ul>
         <li><a href="login.php" class="active"> Login </a></li>
-        <li><a href="home.php"> Home </a></li>
+        <li><a href="warehouse.php"> Warehouse </a></li>
         <li><a href="manage.php"> Manage </a></li>
     </ul>
     <br>
@@ -38,20 +47,20 @@
         <button type="submit" name="submit">Prijavi se</button>
     </form>
     <br><br>
-
+    
     <?php
         if(isset($_POST['submit']))
         {
             $uname = $_POST['uname'];
             $pass = $_POST['pass'];
-            $auth =  getAuth($uname, $pass);  //Boolean koji se setuje na true ako kredencijali postoje u bazi
-            $status = "notSet";
+            $status =  getAuth($db, $uname, $pass);  //Autentifikacija korisnika i setovanje statusa korisnika
             
-            //Kreiranje parametara sesije ako je autentifikacija uspesna
-            if($auth==true)
+            //Autentifikacija je za sada zamisljena na ovaj nacin:
+            //Ako je rezultat funkcije getAuth() prazan string korisnik ne postoji u bazi i sledeci blok naredbi ne prolazi
+            //Ako rezultat funkcije getAuth() nije prazan string setuje se sesija i cookiji.
+            
+            if($status)
             {
-                $status = getStatus($uname); 
-
                 $_SESSION['user'] = $uname;
                 $_SESSION['status'] = $status;
 
@@ -62,8 +71,8 @@
                     setcookie("status", $status, time()+8400, "/");
                 }
 
-                //Redirekcija na home page nakon uspesne autentifikacije i kreiranja parametara sesije i cookija
-                header("Location: home.php");   
+                //Redirekcija na warehouse page nakon uspesne autentifikacije i kreiranja parametara sesije i cookija
+                header("Location: warehouse.php");   
             }
             else
             {
@@ -76,7 +85,8 @@
 
             echo "<br>";
             //var_dump($_SESSION);
-
+            //$test = getAuth($db,$uname,$pass);
+            //echo $test;
                 
             
             

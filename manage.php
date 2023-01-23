@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <ul>
         <!-- <li><a href="login.php"> Login </a></li> -->
-        <li><a href="home.php"> Home </a></li>
+        <li><a href="warehouse.php"> Warehouse </a></li>
         <li><a href="manage.php" class="active"> Manage </a></li>
     </ul>
 

@@ -54,41 +54,10 @@
         fclose($file);
     }
 
-    function getAuth($uname,$pass)
-    {
-        $a = false;
-        $fPath = "kredencijali.txt";
-        $file= fopen($fPath, "r");
-        while(($red = fgets($file))!=NULL)
-        {
-            $ar_red = explode("#", $red);
-            if(($ar_red[0]==$uname)and($ar_red[1]==$pass))
-                $a = true;
-        }
-        fclose($file);
+    //Funkcije sesije
 
-        if($a==true)
-            return true;
-        else
-            return false;
-    }
-    
-    function getStatus($uname)
-    {
-        $status = "";
-        $fPath = "kredencijali.txt";
-        $file= fopen($fPath, "r");
-        while(($red = fgets($file))!=NULL)
-        {
-            $ar_red = explode("#", $red);
-            if(($ar_red[0]==$uname))
-                $status = $ar_red[2];
-        }
-        fclose($file);
-        return $status;
-    }
-
-
+    //Funkcija koja proverava da li je korisnik ulogovan proverom parametara
+    //sesije i cookija
     function isLogedIn()
     {
         if(isset($_SESSION['user']) and isset($_SESSION['status']))
@@ -108,11 +77,58 @@
         }
     }
 
-    function logout(){
+    //Funkcija koja unistava sesiju i brise cookije
+    function logout()
+    {
         session_unset();
         session_destroy();
         setcookie("user", "", time()-1, "/");
         setcookie("status", "", time()-1, "/");
     }
+
+    //Funkcije baze
+
+    //Konektuje se na bazu ako su parametri tacni
+    function konekcija()
+    {
+        $db = @mysqli_connect("localhost", "root", "", "mini_web_warehouse");
+        if(!$db)
+        {
+            echo "Neuspesna konekcija na bazu";
+            echo mysqli_connect_errno().": ".mysqli_connect_error();
+            return false;
+        }
+        else
+        {
+            mysqli_query($db, "SET NAMES utf8");
+            return($db); 
+        }
+    }
+
+    //Funkcija vraca status korisnika ako postoji u tebeli korisnici baze podataka
+    //Ima dvostruku namenu: autentifikacija i setovanje statusa u sesiji i cookiju
+    function getAuth($db,$uname,$pass)
+    {
+        $status = "";
+        $query = "SELECT * FROM korisnici";
+        $odg = mysqli_query($db,$query);
+        if(mysqli_error($db))
+        {
+            echo "Greska: ".mysqli_connect_error($db);
+        }
+        else
+        {
+            while($row = mysqli_fetch_array($odg, MYSQLI_ASSOC))
+            {
+                if(($row['lozinka'] == $pass) and ($row['korisnicko_ime'] == $uname))
+                {
+                    $status =  $row['status'];
+                    break;
+                }
+            }
+        }
+        return $status;
+    }
+
 
 ?>
