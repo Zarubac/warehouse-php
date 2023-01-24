@@ -120,7 +120,7 @@
         {
             while($row = mysqli_fetch_array($odg, MYSQLI_ASSOC))
             {
-                if(($row['lozinka'] == $pass) and ($row['korisnicko_ime'] == $uname))
+                if(($row['lozinka'] == $pass) and ($row['korisnicko_ime'] == $uname) and ($row['fake_delete'] == false))
                 {
                     $status =  $row['status'];
                     break;
@@ -128,6 +128,18 @@
             }
         }
         return $status;
+    }
+
+    //Funkcija za lazno brisanje iz baze
+    //Setuje vrednost fake_delete na 1 za izabranog korisnika
+    function fake_delete($db, $id)
+    {
+        $upit = "UPDATE `korisnici` SET `fake_delete` = '1' WHERE `korisnici`.`id` = $id;";
+        mysqli_query($db,$upit);
+        if(mysqli_error($db))
+        {
+            echo "Greska: ".mysqli_connect_error($db);         
+        }   
     }
 
 

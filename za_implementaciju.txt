@@ -1,4 +1,9 @@
 Kreiranje stranice Profil koja ce se nalaziti sa desne strane nav bara na svim 
     stranama osim login. Kartica ce imati profil sliku korisnika sa leve strane kartice
-    i padajuci meni koji kad se otvori pise korisnicko ime i ima link za odjavu.
- 
+    i padajuci meni koji kad se otvori pise korisnicko ime / uredi profil i ima link za odjavu.
+
+Kreiranje stranice profil 
+
+Potvrda passwordom brisanja radnika
+
+

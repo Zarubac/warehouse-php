@@ -10,3 +10,5 @@ id9#zuti sok#sok#6id
 10#crni sok#sok#110
 id12#mini pizza#pekara#250
 id13#pizza parce#pekara#360
+
+'Pekara','Bezalkoholna pića', 'Alkoholna pića', 'Pijaca', 'Mesara', 'Mlečni proizvodi', 'Zamrznuti proizvodi', 'Slatkiši', 'Hemija', 'Ostalo'
