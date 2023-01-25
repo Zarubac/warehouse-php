@@ -17,6 +17,9 @@
 
 ?>
 
+<!-- JS -->
+<script src="script.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,28 +52,29 @@
     <!-- Forma 1 Dodavanje radnika u bazu-->
     <br>
     <div>
-        <form action="manage.php" method="POST">
-        <input type="text" name="imeRadnika" id="imeRadnika" placeholder="Unesite ime radnika">
+        <form action="manage.php" method="POST" onsubmit="return praznoPolje();">
+        <input type="text" name="imeRadnika" id="imeRadnika" placeholder="Unesite ime radnika" onkeydown="praznoPoljeNull(this)">
         <br><br>
-        <input type="text" name="prezimeRadnika" id="prezimeRadnika" placeholder="Unesite prezime radnika">
+        <input type="text" name="prezimeRadnika" id="prezimeRadnika" placeholder="Unesite prezime radnika" onkeydown="praznoPoljeNull(this)">
         <br><br>
-        <select name="status" id="status">
+        <select name="status" id="status" onchange="praznoPoljeNull(this)">
             <option value="0">--Status radnika--</option>
             <option value="Magacioner">Magacioner</option>
             <option value="Admin">Admin</option>
         </select>
         <br><br>
-        <input type="email" name="email" id="email" placeholder="Unesite email radnika">
+        <input type="email" name="email" id="email" placeholder="Unesite email radnika" onkeydown="praznoPoljeNull(this)">
         <br><br>
-        <input type="text" name="username" id="username" placeholder="Unesite username radnika">
+        <input type="text" name="username" id="username" placeholder="Unesite username radnika" onkeydown="praznoPoljeNull(this)">
         <br><br>
-        <input type="password" name="password" id="password" placeholder="Unesite password radnika">
+        <input type="password" name="password" id="password" placeholder="Unesite password radnika" onkeydown="praznoPoljeNull(this)">
         <br><br>  
         <button type="submit" name="dodaj" id="dodaj">Dodaj</button>
         <br><br>
+        <button type="button" onclick="praznoPolje();">Test</button>
         </form>
     </div>
-    
+    <div  id="print"></div>
     <?php
         if(isset($_POST['dodaj']))
         {
