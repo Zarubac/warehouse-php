@@ -1,1 +1,1 @@
-bug: ne redirektuje me nakon login-a. Bag se pojavio kada sam uveo foldere
+bug: ne redirektuje me nakon login-a. Bag se pojavio kada sam uveo foldere  --- reseno sa window.location.reload(); u login.js

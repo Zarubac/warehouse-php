@@ -12,7 +12,8 @@ $(document).ready(function(){
                 let status = odgovor[0].status;
                 
                 $.post("../session_ajax.php?funkcija=kreiranje", {uname: username, status:status}, function(){
-                    
+                    window.location.reload();
+                    //nije htelo da redirektuje na warehouse nakon logovanja
                 });
             });
         }
