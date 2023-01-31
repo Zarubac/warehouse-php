@@ -1,0 +1,1 @@
+bug: ne redirektuje me nakon login-a. Bag se pojavio kada sam uveo foldere

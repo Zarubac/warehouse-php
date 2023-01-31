@@ -5,7 +5,7 @@
     if(!isLogedIn())
         {
             echo "Morate se prijaviti<br>";
-            echo "<a href='login.php'>Prijavi se</a>";
+            echo "<a href='../login/login.php'>Prijavi se</a>";
             exit();
         }
 ?>
@@ -18,7 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../stilovi.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <script src="login.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -28,11 +27,16 @@
         <li><a href="../warehouse/warehouse.php"> Warehouse </a></li>
         <li><a href="../profil/profil.php" class="active"> Profil </a></li>
     </ul>
-    
+    <div class="profilnaSlika">
+        <img src="../profilne_slike/moja.jpg" alt="nema slike">
+    </div>
+    <div class="profilInfo">
+
+    </div>
     <?php
         $username = $_SESSION['username'];
         $status = $_SESSION['status'];
-        echo "<div>Ulogovani ste kao: ".$username." sa statusom: ".$status."</div><br>";
+        //echo "<div>Ulogovani ste kao: ".$username." sa statusom: ".$status."</div><br>";
 
     ?>
     

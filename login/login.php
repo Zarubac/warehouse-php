@@ -37,7 +37,7 @@
     <ul>
         <li><a href="../login/login.php" class="active"> Login </a></li>
         <li><a href="../warehouse/warehouse.php"> Warehouse </a></li>
-        <li><a href="../profil/profil.php" class="profil"> Profil </a></li>
+        <li><a href="../profil/profil.php"> Profil </a></li>
         
     </ul>
     <br>
@@ -53,7 +53,7 @@
     <br><br>
     <div id="test"></div>
     <?php
-        echo (var_dump($_SESSION));
+       echo (var_dump($_SESSION));
     ?>
     
 </body>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("funkcije.php");
+require_once("../funkcije.php");
 
 if(isset($_GET['funkcija']))
 {

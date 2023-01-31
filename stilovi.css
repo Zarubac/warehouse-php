@@ -28,12 +28,30 @@ li a:hover {
   background-color: rgb(240, 167, 9);
 }
 
-.profil {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  float: right;
-  padding: 14px 16px;
+.profilnaSlika {
+  display: inline-block;
+  vertical-align:top;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 15px;
+  background-color: #111;
+ 
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profilInfo {
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+  margin-top: 15px;
+}
 

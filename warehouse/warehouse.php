@@ -5,7 +5,7 @@
     if(!isLogedIn())
         {
             echo "Morate se prijaviti<br>";
-            echo "<a href='login.php'>Prijavi se</a>";
+            echo "<a href='../login/login.php'>Prijavi se</a>";
             exit();
         }
 ?>

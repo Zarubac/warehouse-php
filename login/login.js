@@ -10,7 +10,8 @@ $(document).ready(function(){
                 let odgovor = JSON.parse(response);
                 let username = odgovor[0].korisnicko_ime;
                 let status = odgovor[0].status;
-                $.post("session_ajax.php?funkcija=kreiranje", {uname: username, status:status}, function(){
+                
+                $.post("../session_ajax.php?funkcija=kreiranje", {uname: username, status:status}, function(){
                     
                 });
             });
@@ -19,6 +20,6 @@ $(document).ready(function(){
         {
             $("#test").html("Morate uneti korisnicko ime i lozinku");
         }
-        //return false;
+        return false;
     });
 });
