@@ -45,4 +45,20 @@
             return($db); 
         }
     }
+
+    function fetchAll($db, $upit)
+    {
+        $quer = mysqli_query($db, $upit);
+        $odgovor = mysqli_fetch_all($quer, MYSQLI_ASSOC);
+        echo JSON_encode($odgovor, 256);
+    }
+
+    function logItBro($error){
+        //Jos nije testirana
+        $path = "../errorlog.txt";
+        $entry = date("d.m.Y : H:i:s")." -- > ".$error."/n";
+        $file = fopen($path,"a");
+        fwrite($file, $entry);
+        fclose($file);
+    }
 ?>

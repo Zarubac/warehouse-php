@@ -53,8 +53,7 @@
     <br><br>
     <div id="test"></div>
     <?php
-       //echo (var_dump($_SESSION));
-       //header("Refresh: 0");
+       
     ?>
     
 </body>

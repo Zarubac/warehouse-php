@@ -11,10 +11,18 @@ $(document).ready(function(){
                 let username = odgovor[0].korisnicko_ime;
                 let status = odgovor[0].status;
                 
-                $.post("../session_ajax.php?funkcija=kreiranje", {uname: username, status:status}, function(){
+                if(odgovor[0].fake_delete == 0)
+                {
+                    $.post("../session_ajax.php?funkcija=kreiranje", {uname: username, status:status}, function(){
+                        window.location.reload();
+                        //nije htelo da redirektuje na warehouse nakon logovanja
+                    });
+                }
+                else
+                {
                     window.location.reload();
-                    //nije htelo da redirektuje na warehouse nakon logovanja
-                });
+                }
+                
             });
         }
         else 
